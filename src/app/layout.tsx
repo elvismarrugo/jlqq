@@ -22,9 +22,12 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "AdrianShop | Justo lo que quieres",
-  description: "Tu centro comercial virtual",
-};
+  title: {
+    template: '%s - AdrianShop | Justo lo que quieres',
+    default: "AdrianShop | Justo lo que quieres",
+  },
+  description: 'Tu centro comercial virtual',
+}
 
 export default function RootLayout({
   children,

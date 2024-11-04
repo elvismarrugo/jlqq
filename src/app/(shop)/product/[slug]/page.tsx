@@ -4,6 +4,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 
 import { titleFont } from "@/config/fonts";
+
 import {
   ProductMobileSlideshow,
   ProductSlideshow,
@@ -13,12 +14,17 @@ import {
 } from "@/components";
 import { getProductBySlug } from "@/actions";
 
+
 interface Props {
   params: {
     slug: string;
   };
 }
 
+// export const metadata: Metadata = {
+//   title: "AdrianShop | Justo lo que quieres",
+//   description: "Tu centro comercial virtual",
+// };
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
