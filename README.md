@@ -19,3 +19,10 @@ npx prisma init --datasource-provider PostgreSQL
 
 
 ## Correr en prod
+
+## Usar URL
+ngrok http http://localhost:3000
+
+https://www.opengraph.xyz/
+
+https://2cff-186-116-85-228.ngrok-free.app
