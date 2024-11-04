@@ -33,7 +33,7 @@ export default async function Home({ searchParams }: Props) {
   return (
     <>
       <Title
-        title="Tienda"
+        title="T i e n d a"
         subtitle="Todos los productos"
         className="mb-2"
       />
