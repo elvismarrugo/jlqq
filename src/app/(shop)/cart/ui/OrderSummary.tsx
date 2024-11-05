@@ -1,9 +1,9 @@
 "use client";
 
-import { useCartStore } from "@/store";
 import { currencyFormat } from "@/utils";
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
+import { useCartStore } from "@/store";
 
 export const OrderSummary = () => {
 
@@ -20,7 +20,6 @@ export const OrderSummary = () => {
 
 
    useEffect(() => {
-
       if ( itemsInCart === 0 && loaded === true )   {
         router.replace('/empty')
       }
