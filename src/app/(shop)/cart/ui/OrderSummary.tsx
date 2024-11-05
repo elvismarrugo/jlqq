@@ -1,29 +1,32 @@
 "use client";
 
+import { useCartStore } from "@/store";
 import { currencyFormat } from "@/utils";
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
-import { useCartStore } from "@/store";
 
 export const OrderSummary = () => {
 
-   const router = useRouter();
+  const router = useRouter();
 
-   const [loaded, setLoaded] = useState(false);
-   const { itemsInCart, subTotal, tax, total } = useCartStore((state) =>
+  const [loaded, setLoaded] = useState(false);
+  const { itemsInCart, subTotal, tax, total } = useCartStore((state) =>
     state.getSummaryInformation()
-   );
+  );
 
-   useEffect(() => {
+  useEffect(() => {
     setLoaded(true);
-   }, []);
+  }, []);
 
 
-   useEffect(() => {
-      if ( itemsInCart === 0 && loaded === true )   {
-        router.replace('/empty')
-      }
-   },[ itemsInCart, loaded ])
+  useEffect(() => {
+
+    if (loaded === true && itemsInCart === 0   )   {
+      router.replace('/empty')
+    }
+
+
+  }, [itemsInCart, loaded, router]);
 
 
 
