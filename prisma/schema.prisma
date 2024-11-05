@@ -57,3 +57,19 @@ model ProductImage {
   product   Product @relation(fields: [productId], references: [id])
   productId String
 }
+
+
+enum Role {
+  admin
+  user
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String
+  email         String    @unique
+  emailVerified DateTime?
+  password      String
+  role          Role      @default(user)
+  image         String?
+}
