@@ -7,26 +7,24 @@ import { useEffect, useState } from "react";
 
 export const OrderSummary = () => {
 
-  const router = useRouter();
+   const router = useRouter();
 
-  const [loaded, setLoaded] = useState(false);
-  const { itemsInCart, subTotal, tax, total } = useCartStore((state) =>
+   const [loaded, setLoaded] = useState(false);
+   const { itemsInCart, subTotal, tax, total } = useCartStore((state) =>
     state.getSummaryInformation()
-  );
+   );
 
-  useEffect(() => {
+   useEffect(() => {
     setLoaded(true);
-  }, []);
+   }, []);
 
 
-  useEffect(() => {
+   useEffect(() => {
 
-    if ( itemsInCart === 0 && loaded === true )   {
-      router.replace('/empty')
-    }
-
-
-  },[ itemsInCart, loaded ])
+      if ( itemsInCart === 0 && loaded === true )   {
+        router.replace('/empty')
+      }
+   },[ itemsInCart, loaded ])
 
 
 
