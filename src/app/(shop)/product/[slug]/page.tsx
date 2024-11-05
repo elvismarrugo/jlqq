@@ -1,4 +1,5 @@
 export const revalidate = 604800; //7 días 60*60*24*7
+
 import { Metadata, ResolvingMetadata } from "next";
 
 import { notFound } from "next/navigation";
