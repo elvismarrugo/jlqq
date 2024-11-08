@@ -6,7 +6,6 @@ import { z } from 'zod';
 import prisma from './lib/prisma';
 
 
-
 export const authConfig: NextAuthConfig = {
   pages: {
     signIn: '/auth/login',
