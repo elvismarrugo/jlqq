@@ -16,6 +16,9 @@
 Crear
 npx prisma init --datasource-provider PostgreSQL
 
+Si cambio el esquema
+5. Correr las migraciones de Prisma ```npx prisma migrate dev --name user-role```
+6. Ejecutar seed ```npm run seed```
 
 
 ## Correr en prod
