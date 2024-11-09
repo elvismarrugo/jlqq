@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { Title } from '@/components';
+import { QuantitySelector, Title } from '@/components';
 import { initialData } from '@/seed/seed';
 import Image from 'next/image';
 
@@ -70,13 +70,13 @@ export default function CheckoutPage() {
 
             <h2 className="text-2xl mb-2">Dirección de entrega</h2>
             <div className="mb-10">
-              <p className="text-xl">Adriancho Dice</p>
-              <p>Av. del goce</p>
-              <p>Brr. Getsemani</p>
-              <p>Plaza de la Trinidad</p>
-              <p>Cartagena</p>
-              <p>CP 130001</p>
-              <p>+57 300 1234 567</p>
+              <p className="text-xl">Fernando Herrera</p>
+              <p>Av. Siempre viva 123</p>
+              <p>Col. Centro</p>
+              <p>Alcaldía Cuauhtémoc</p>
+              <p>Ciudad de México</p>
+              <p>CP 123123</p>
+              <p>123.123.123</p>
             </div>
 
             {/* Divider */ }
@@ -93,7 +93,7 @@ export default function CheckoutPage() {
               <span>Subtotal</span>
               <span className="text-right">$ 100</span>
 
-              <span>Impuestos (19%)</span>
+              <span>Impuestos (15%)</span>
               <span className="text-right">$ 100</span>
 
               <span className="mt-5 text-2xl">Total:</span>
@@ -106,9 +106,6 @@ export default function CheckoutPage() {
 
               <p className="mb-5">
                 {/* Disclaimer */ }
-                {/* <span className="text-xs">
-                  Al hacer clic en "Colocar orden", aceptas nuestros <a href="#" className="underline">términos y condiciones</a> y <a href="#" className="underline">política de privacidad</a>
-                </span> */}
                 <span className="text-xs">
                   Al hacer clic en &quot;Colocar orden&quot;, aceptas nuestros <a href="#" className="underline">términos y condiciones</a> y <a href="#" className="underline">política de privacidad</a>
                 </span>
