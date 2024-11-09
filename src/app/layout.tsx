@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 
 // import localFont from "next/font/local";
 import "./globals.css";
+import { Provider } from "@/components";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -40,7 +41,7 @@ export default function RootLayout({
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         className={`${inter.className} antialiased`}
       >
-        {children}
+         <Provider>{children}</Provider>
       </body>
     </html>
   );
