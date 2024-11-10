@@ -1,67 +1,101 @@
-"use server";
+generator client {
+  provider = "prisma-client-js"
+}
 
-import type { Address } from "@/interfaces";
-import prisma from "@/lib/prisma";
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
 
-export const setUserAddress = async (address: Address, userId: string) => {
-  try {
+enum Size {
+  XS
+  S
+  M
+  L
+  XL
+  XXL
+  XXXL
+}
 
-    const newAddress = await createOrReplaceAddress( address, userId );
+enum Gender {
+  men
+  women
+  kid
+  unisex
+}
 
-    return {
-      ok: true,
-      address: newAddress,
-    }
+enum Role {
+  admin
+  user
+}
 
-  } catch (error) {
-    console.log(error);
-    return {
-      ok: false,
-      message: "No se pudo grabar la dirección",
-    };
-  }
-};
+model Category {
+  id      String    @id @default(uuid())
+  name    String    @unique
+  Product Product[]
+}
 
-const createOrReplaceAddress = async (address: Address, userId: string) => {
-  try {
+model Product {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  inStock     Int
+  price       Float    @default(0)
+  sizes       Size[]   @default([])
+  slug        String   @unique
+  tags        String[] @default([])
+  gender      Gender
 
-    console.log({ userId });
+  // Relaciones
 
-    const storedAddress = await prisma.userAddress.findUnique({
-      where: { userId },
-    });
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String
 
-    const addressToSave = {
-      userId: userId,
-      address: address.address,
-      address2: address.address2,
-      countryId: address.country,
-      city: address.city,
-      firstName: address.firstName,
-      lastName: address.lastName,
-      phone: address.phone,
-      postalCode: address.postalCode,
-    };
+  ProductImage ProductImage[]
 
-    if (!storedAddress) {
-      const newAddress = await prisma.userAddress.create({
-        data: addressToSave,
-      });
+  @@index([gender])
+}
 
-      return newAddress;
-    }
+model ProductImage {
+  id  Int    @id @default(autoincrement())
+  url String
 
-    const updatedAddress = await prisma.userAddress.update({
-      where: { userId },
-      data: addressToSave
-    })
+  product   Product @relation(fields: [productId], references: [id])
+  productId String
+}
 
-    return updatedAddress;
+model User {
+  id            String    @id @default(uuid())
+  name          String
+  email         String    @unique
+  emailVerified DateTime?
+  password      String
+  role          Role      @default(user)
+  image         String?
 
+  address UserAddress?
+}
 
+model Country {
+  id          String        @id
+  name        String
+  UserAddress UserAddress[]
+}
 
-  } catch (error) {
-    console.log(error);
-    throw new Error("No se pudo grabar la dirección");
-  }
-};
+model UserAddress {
+  id         String  @id @default(uuid())
+  firstName  String
+  lastName   String
+  address    String
+  address2   String?
+  postalCode String
+  phone      String
+  city       String
+
+  // Relaciones
+  country   Country @relation(fields: [countryId], references: [id])
+  countryId String
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @unique
+}

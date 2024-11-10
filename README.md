@@ -20,6 +20,8 @@ Si cambio el esquema
 5. Correr las migraciones de Prisma ```npx prisma migrate dev --name user-role```
 6. Ejecutar seed ```npm run seed```
 
+5. Correr las migraciones de Prisma ```npx prisma migrate dev --name country```
+6. Ejecutar seed ```npm run seed```
 
 ## Correr en prod
 
