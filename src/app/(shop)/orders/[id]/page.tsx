@@ -1,4 +1,4 @@
-// import Link from 'next/link';
+import Link from 'next/link';
 
 import { Title } from '@/components';
 import { initialData } from '@/seed/seed';
@@ -97,13 +97,13 @@ export default function OrdersByIdPage( { params }: Props ) {
 
             <h2 className="text-2xl mb-2">Dirección de entrega</h2>
             <div className="mb-10">
-              <p className="text-xl">Adriancho Dice</p>
-              <p>Av. del goce</p>
-              <p>Brr. Getsemani</p>
-              <p>Plaza de la Trinidad</p>
-              <p>Cartagena</p>
-              <p>CP 130001</p>
-              <p>+57 300 1234 567</p>
+              <p className="text-xl">Fernando Herrera</p>
+              <p>Av. Siempre viva 123</p>
+              <p>Col. Centro</p>
+              <p>Alcaldía Cuauhtémoc</p>
+              <p>Ciudad de México</p>
+              <p>CP 123123</p>
+              <p>123.123.123</p>
             </div>
 
             {/* Divider */ }

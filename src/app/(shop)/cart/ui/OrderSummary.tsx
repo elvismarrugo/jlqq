@@ -21,12 +21,12 @@ export const OrderSummary = () => {
 
   useEffect(() => {
 
-    if (loaded === true && itemsInCart === 0   )   {
+    if ( itemsInCart === 0 && loaded === true )   {
       router.replace('/empty')
     }
 
 
-  }, [itemsInCart, loaded, router]);
+  },[ itemsInCart, loaded, router ])
 
 
 
