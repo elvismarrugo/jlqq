@@ -15,15 +15,13 @@ const productsInCart = [
 
 
 interface Props {
-  params: {
-    id: string;
-  };
+  params: Promise< {id: string;}>;
 }
 
 
-export default function OrdersByIdPage( { params }: Props ) {
-
-  const { id } = params;
+export default async function OrdersByIdPage( { params }: Props ) {
+  const resolvedParams = await params;
+  const { id } = resolvedParams;
 
   // Todo: verificar
   // redirect(/)

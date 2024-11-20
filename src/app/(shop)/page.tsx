@@ -9,15 +9,15 @@ import { Pagination, ProductGrid, Title } from '@/components';
 
 
 interface Props {
-  searchParams: {
-    page?: string; 
-  }
+  searchParams: Promise<{page?: string; }>
 }
 
 
 export default async function Home({ searchParams }: Props) {
 
-  const page = searchParams?.page ? parseInt( searchParams.page ) : 1;
+  const resolvedSearchParams = await searchParams;
+
+  const page = resolvedSearchParams?.page ? parseInt( resolvedSearchParams.page ) : 1;
 
   const { products, currentPage, totalPages } = await getPaginatedProductsWithImages({ page });
 

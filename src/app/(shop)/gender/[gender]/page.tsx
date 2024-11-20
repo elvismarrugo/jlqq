@@ -9,20 +9,19 @@ import { redirect } from 'next/navigation';
 
 
 interface Props {
-  params: {
-    gender: string;
-  },
-  searchParams: {
-    page?: string; 
-  }
+  params: Promise< {gender: string;}>,
+  searchParams: Promise<{page?: string;}>
 }
 
 
 export default async function GenderByPage({ params, searchParams }: Props) {
 
-  const { gender } = params;
+  const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
 
-  const page = searchParams.page ? parseInt( searchParams.page ) : 1;
+  const { gender } = resolvedParams;
+
+  const page = resolvedSearchParams.page ? parseInt( resolvedSearchParams.page ) : 1;
 
   const { products, totalPages } = await getPaginatedProductsWithImages({ //currentPage, 
     page, 
