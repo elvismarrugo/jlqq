@@ -3,11 +3,14 @@ import { initialData } from './seed';
 import { countries } from './seed-countries';
 
 
-
 async function main() {
 
   // 1. Borrar registros previos
   // await Promise.all( [
+  await prisma.OrderAddress.deleteMany();
+  await prisma.OrderItem.deleteMany();
+  await prisma.Order.deleteMany();
+
   await prisma.userAddress.deleteMany();
   await prisma.user.deleteMany();
   await prisma.country.deleteMany();
