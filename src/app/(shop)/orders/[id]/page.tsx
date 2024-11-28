@@ -6,13 +6,13 @@ import { currencyFormat } from "@/utils";
 import { OrderStatus, PayPalButton, Title } from "@/components";
 
 interface Props {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function OrdersByIdPage({ params }: Props) {
-  const { id } = params;
+  const { id } = await params;
 
   // Todo: Llamar el server action
 
