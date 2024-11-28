@@ -18,17 +18,17 @@ import { Providers } from "@/components";
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-})
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - AdrianShop | Justo lo que quieres',
-    default: "AdrianShop | Justo lo que quieres",
+    template: "%s - AdrianShop | Justo lo que comprarias",
+    default: "AdrianShop | Justo lo que comprarias",
   },
-  description: 'Tu centro comercial virtual',
-}
+  description: "Tu centro comercial virtual",
+};
 
 export default function RootLayout({
   children,
@@ -41,7 +41,7 @@ export default function RootLayout({
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         className={`${inter.className} antialiased`}
       >
-         <Providers>{children}</Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
