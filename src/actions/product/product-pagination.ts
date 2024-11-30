@@ -20,11 +20,11 @@ export const getPaginatedProductsWithImages = async ({
   try {
     // 1. Obtener los productos
     const products = await prisma.product.findMany({
-      take: take, 
+      take: take,
       skip: (page - 1) * take,
       include: {
         ProductImage: {
-          take: 2, // cantidad de imagenes a traer
+          take: 2,
           select: {
             url: true,
           },
