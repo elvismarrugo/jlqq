@@ -4,16 +4,17 @@ import { redirect } from 'next/navigation';
 import { ProductForm } from './ui/ProductForm';
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  }
+  }>
 }
 
 
 
 export default async function ProductPage({ params }: Props) {
 
-  const { slug } = params;
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
 
   const [ product, categories ] = await Promise.all([
     getProductBySlug(slug),
