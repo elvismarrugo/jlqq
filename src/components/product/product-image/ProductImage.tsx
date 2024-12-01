@@ -28,7 +28,7 @@ export const ProductImage = ({
     <Image
       src={ localSrc }
       width={ width }
-      height={ height}
+      height={ height }
       alt={ alt }
       className={ className }
       style={ style }
