@@ -25,6 +25,8 @@ Si cambio el esquema
 6. Ejecutar seed ```npm run seed```
 
 ## Correr en prod
+Correr las migraciones de Prisma ```npx prisma migrate deploy```
+Ejecutar seed ```npm run seed```
 
 ## Usar URL
 https://dashboard.ngrok.com/get-started/setup/linux
