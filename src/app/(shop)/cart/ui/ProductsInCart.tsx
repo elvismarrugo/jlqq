@@ -16,12 +16,10 @@ export const ProductsInCart = () => {
 
   const [loaded, setLoaded] = useState(false);
   const productsInCart = useCartStore( state => state.cart );
-
-
+  
   useEffect(() => {
-    setLoaded(true) ;
-  });
-
+    setLoaded(true);
+  }, []); // Lista de dependencias vacía
 
 
 
