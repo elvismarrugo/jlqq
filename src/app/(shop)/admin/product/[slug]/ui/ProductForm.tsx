@@ -132,7 +132,7 @@ export const ProductForm = ({ product, categories }: Props) => {
         </div>
 
         <div className="flex flex-col mb-2">
-          <span>Price</span>
+          <span>Precio</span>
           <input
             type="number"
             className="p-2 border rounded-md bg-gray-200"
@@ -141,7 +141,7 @@ export const ProductForm = ({ product, categories }: Props) => {
         </div>
 
         <div className="flex flex-col mb-2">
-          <span>Tags</span>
+          <span>Etiqueta</span>
           <input
             type="text"
             className="p-2 border rounded-md bg-gray-200"
@@ -150,15 +150,15 @@ export const ProductForm = ({ product, categories }: Props) => {
         </div>
 
         <div className="flex flex-col mb-2">
-          <span>Gender</span>
+          <span>Genero</span>
           <select
             className="p-2 border rounded-md bg-gray-200"
             {...register("gender", { required: true })}
           >
             <option value="">[Seleccione]</option>
-            <option value="men">Men</option>
-            <option value="women">Women</option>
-            <option value="kid">Kid</option>
+            <option value="men">Hombres</option>
+            <option value="women">Mujeres</option>
+            <option value="kid">Niños</option>
             <option value="unisex">Unisex</option>
           </select>
         </div>
