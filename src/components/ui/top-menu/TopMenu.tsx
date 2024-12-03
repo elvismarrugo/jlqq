@@ -25,7 +25,7 @@ export const TopMenu = () => {
           <span className={`${titleFont.className} antialiased font-bold`}>
             AdrianShop
           </span>
-          <span> | Justo lo que comprarias </span>
+          <span className="hidden md:inline"> | Justo lo que comprarías </span>
         </Link>
       </div>
 
