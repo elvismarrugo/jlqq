@@ -20,7 +20,8 @@ export const TopMenu = () => {
   return (
     <nav className="flex px-5 justify-between items-center w-full">
       {/* Logo */}
-      <div className="flex-1 text-center sm:text-left">
+      {/* <div className="flex-1 text-left sm:text-center"> */}
+      <div>
         <Link href="/">
           <span className={`${titleFont.className} antialiased font-bold`}>
             AdrianShop
