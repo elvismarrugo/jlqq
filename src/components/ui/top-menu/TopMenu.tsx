@@ -26,7 +26,10 @@ export const TopMenu = () => {
           <span className={`${titleFont.className} antialiased font-bold`}>
             AdrianShop
           </span>
-          <span className="hidden md:inline"> | Justo lo que comprarías </span>
+          <span className="hidden md:inline">
+            {" "}
+            | Justo lo que querías comprar{" "}
+          </span>
         </Link>
       </div>
 
@@ -56,7 +59,7 @@ export const TopMenu = () => {
       <div className="flex items-center">
         {/* <Link href="/search" className="mx-2">
           <IoSearchOutline className="w-5 h-5" />
-        </Link> */}        
+        </Link> */}
         <Link
           href={totalItemsInCart === 0 && loaded ? "/empty" : "/cart"}
           className="mx-2"
