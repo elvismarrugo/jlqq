@@ -24,8 +24,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s - AdrianShop | Justo lo que comprarias",
-    default: "AdrianShop | Justo lo que comprarias",
+    template: "%s - AdrianShop | Justo lo que querías comprar",
+    default: "AdrianShop | Justo lo que querías comprar",
   },
   description: "Tu centro comercial virtual",
 };
