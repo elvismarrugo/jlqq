@@ -97,6 +97,7 @@ export const ProductForm = ({ product, categories }: Props) => {
 
   };
 
+  
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
