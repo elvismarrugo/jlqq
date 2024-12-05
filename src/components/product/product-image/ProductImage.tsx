@@ -21,8 +21,8 @@ export const ProductImage = ({
   const localSrc = ( src ) 
     ? src.startsWith('http') // https://urlcompletodelaimagen.jpg
       ? src
-      // : `/products/${ src }`
-      : `https://res.cloudinary.com/${process.env.CLOUDINARY_URL}/image/upload/${src}`
+      : `/products/${ src }`
+      // : `https://res.cloudinary.com/${process.env.CLOUDINARY_URL}/image/upload/${src}`
     : '/imgs/placeholder.jpg';
 
 
