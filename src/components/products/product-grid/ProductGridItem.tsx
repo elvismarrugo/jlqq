@@ -15,13 +15,34 @@ interface Props {
 export const ProductGridItem = ( { product }: Props ) => {
 
   const [ displayImage, setDisplayImage ] = useState( product.images[ 0 ] );
+// Función para determinar la fuente de la imagen
+const getLocalSrc = (src: string): string => {
+  if (src) {
+    if (src.startsWith('http')) {
+      // URL completa de la imagen
+      return src;
+    } else {
+      // Ruta relativa dentro del directorio /public/products/
+      return `/products/${src}`;
+      // Si usas Cloudinary u otro servicio, puedes descomentar y ajustar la siguiente línea:
+      // return `https://res.cloudinary.com/${process.env.CLOUDINARY_URL}/image/upload/${src}`;
+    }
+  }
+  // Imagen de marcador de posición si no se proporciona src
+  return '/imgs/placeholder.jpg';
+};
+
+
+  // Determinar la fuente actual de la imagen
+  const localSrc = getLocalSrc(displayImage);
 
 
   return (
     <div className="rounded-md overflow-hidden fade-in">
       <Link href={ `/product/${ product.slug }` }>
         <Image
-          src={ `/products/${ displayImage }` }
+          // src={ `/products/${ displayImage }` }
+          src={localSrc}  
           alt={ product.title }
           className="w-full object-cover rounded"
           width={ 500 }
