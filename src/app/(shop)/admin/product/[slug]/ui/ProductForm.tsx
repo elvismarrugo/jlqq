@@ -40,6 +40,7 @@ export const ProductForm = ({ product, categories }: Props) => {
     getValues,
     setValue,
     watch,
+    setFocus, // Importar setFocus
   } = useForm<FormInputs>({
     defaultValues: {
       ...product,
@@ -111,6 +112,12 @@ export const ProductForm = ({ product, categories }: Props) => {
             type="text"
             className="p-2 border rounded-md bg-gray-200"
             {...register("title", { required: true })}
+            onBlur={(e) => {
+              const title = e.target.value;
+              const slug = title.toLowerCase().replace(/\s+/g, '_');
+              setValue('slug', slug);
+              setFocus('description');
+            }}
           />
         </div>
 
